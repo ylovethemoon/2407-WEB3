@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* CSS : 파일 내부에 css를 작성 */
+    </style>
+    
+    <!-- head 안에 link로 외부 스타일시트를 가져오기 -->
+    <link rel="stylesheet" href="경로">
+
+    <!-- head에도 script 외부 경로를 가져올 수 있지만, 별도의 처리가 필요하다. -->
+
+    <!-- head : javascript 들어갈 수 있음 -->
+</head>
+<body>
+    <!-- html 작성 -->
+
+    <!-- body : javascript 들어갈 수 있음 -->
+
+    <script>
+        // 닫는 body 위에 보통 js가 들어간다. 
+
+        // 함수는 아래와 같은 형태로 만들어졌다. funciton = 기능 = 함수
+        // 함수이름(재료)
+
+        // 이름(?가 붙어있으면 필수 요소는 아님.)
+
+        alert('안녕하세요');
+        // alert()는 간편하게 알림을 출력할 수 있는 함수지만, 
+        // 디자인이 별로고 '확인'버튼을 누르기 전까지 실행을 멈춰버리 때문에 거의 사용하지 않는다.
+
+        window.alert('진짜경로');
+        // 위 형태는 window 라는 폴더 안에 alert 라는 파일
+        // window는 보통 생략한다.
+        // 경로를 표현할 때 . 을 사용한다.
+
+        document.write('문서에 그냥 출력하기')
+        // 문서에 내용을 출력하는 기능
+        // 사용에 제약이 많기도 하고, 보안성이 좋지 않아 잘 사용하지 않는다.
+        // 보통 html 뒤에 들어감.
+        
+        document.write('<h1>제목</h1>')
+        // 이런식으로 write 안에 태그를 넣어 html 작성처럼 쓸 수 있지만,
+        // 안정성이 낮아 좋지 않은 방식.
+
+        console.log('콘솔에출력');
+        
+    </script>
+
+    <!-- body 안에 외부 js를 가져오기 -->
+    <script src="js.js"></script>
+
+</body>
+</html>
