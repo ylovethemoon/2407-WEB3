@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤년연습</title>
+</head>
+<body>
+    <script>
+        var 년도;
+        년도 = 2000
+
+
+        // 4의 배수일때 윤년, 그러나 100의 배수일땐 윤년 아님. 400의 배수이면 윤년.
+
+        // 4의 배수이면서,100의배수가 아닐떄 , 혹은 400의 배수일떄 
+    
+        
+
+        if(년도 % 4 === 0 && 년도 % 100 !== 0 || 년도 % 400 === 0) {
+            console.log(`${년도}년은 윤년입니다`)
+        } else {
+            console.log(`${년도}년은 윤년이 아닙니다`)
+        }
+
+
+
+        
+        var 윤년 = (년도 % 4 === 0 && 년도 % 100 !== 0) || 년도 % 400 === 0;
+        console.log(윤년?`${년도}년은 윤년입니다`:`${년도}년은 윤년이 아닙니다`);
+
+
+        
+
+
+        if(년도 % 400 === 0) {
+            console.log('윤년입니다')
+        } else if (년도 % 100 === 0) {
+            console.log('윤년이 아닙니다')
+        } else if (년도 % 4 === 0) {
+            console.log('윤년입니다')
+        } else {
+            console.log('윤년이 아닙니다') 
+        }
+    </script>
+</body>
+</html>
