@@ -36,14 +36,13 @@
         // let 별 = '*'
 
         for(let a = 0 ; a < 5 ; a++) {
-            for(let b = 0 ; b < 5 ; b++) {
+            for(let c = 0 ; c < a ; c++) {
+                document.write('&nbsp;&nbsp;  ')
+            }            
+            for(let b = 5 ; b > a ; b--) {
                 document.write('&nbsp;*&nbsp;')
             }
-
-            for(let c = 0 ; c < 5 ; c++) {
-                document.write('&nbsp;')
-            }
-          
+            
             document.write('<br>')
         }
 
