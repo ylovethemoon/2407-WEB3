@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script>
+        const student1 = '김유리';
+        const student2 = '주우재';
+        const student3 = '김민우';
+        
+        const studentNames = ['김유리','주우재','김민우'];
+        // 대괄호에 묶여 있고, 쉼표로 개체가 구분되는 형태를 "배열" 이라고 한다.
+
+
+        // ex) 콘솔에 주우재를 출력하고 싶다면,
+        console.log(studentNames[1]);
+
+        // 배열의 인덱스를 활용해 특정 요소를 사용할 수 있다.
+        // 인덱스는 0 부터 시작하고, 배열 선언할 때 대괄호 [] 를 사용했던 것처럼,
+        // 변수명[인덱스] 형태로 사용하면 된다.
+
+        
+        // 맨 뒤 요소를 사용 (stack)
+        console.log(studentNames.pop())
+
+ 
+        // 맨 앞에 요소를 추가하고 싶을 때
+        studentNames.unshift('김유리')
+
+
+        // 맨 앞 요소를 사용 (queue)
+        console.log(studentNames.shift())
+
+    </script>
+</body>
+</html>
