@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>난수</title>
+</head>
+<body>
+    <script>
+        // 난수 : 랜덤 수
+        const 난수 = Math.random();
+        console.log(난수);
+
+        // Math.random() : 0 이상 1 미만의 수를 랜덤을 불러온다.
+        // 0 이상 1 미만
+        // 0 ~ 0.99999999.... 까지 나온다.
+
+        // 0부터 4까지 만들고 싶은 상황이라면?
+        // *5
+        // Math.random() 값에 *5 를 해준다.
+        // 최소값 : 0, 최대값 : 4.99999999 ... 
+        // 소숫점을 버리려면? parseInt : 정수로 만드는 함수.
+
+
+        console.log(parseInt(Math.random()*5));
+
+
+        // 20 ~ 80 까지 난수
+
+        console.log(parseInt(Math.random()*61)+20);
+
+        for (i = 20 ; i < 80)
+
+
+        
+        
+    </script>
+</body>
+</html>
