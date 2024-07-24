@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다운</title>
+</head>
+<body>
+    <script>
+        // continue; : 반복문 안에서 컨티뉴를 만나면 아래 있는거 싹 무시하고 다음 회차 실행.
+        // break; : 반복문 안에서 break 를 만나면 그 조건이 만족했을 때 끝나버린다.
+
+        const 정답 = parseInt( Math.random() * 100 ) + 1 ;
+        alert('정답은 ' + 정답 + ' 입니다.');
+        
+        for (let i = 0 ; i < 5 ; i++) {
+            const 답변 = parseInt(prompt('내가 생각한 숫자는?'));
+
+            if (답변 === 정답) {
+                alert('정답입니다.');
+                break;
+            } else if (답변 < 정답) {
+                alert('Up.');
+            } else {
+                alert('Down.'); 
+            }
+        }
+
+    </script>
+</body>
+</html>
