@@ -31,7 +31,26 @@
 
 
 
+        let max = 0;
+        let min = 10000;
+
+        for(let i = 0 ; i < 1000 ; i ++) {
+            const randomNumber = parseInt(Math.random()*61)+20;
+            if(randomNumber > max) { 
+                max = randomNumber;
+            } 
+
+            if(randomNumber < min){
+                min = randomNumber;
+            }
+        }
         
+        console.log(max,min);
+
+        // parseInt(Math.random() * 범위) + 시작값
+
+
+
         
     </script>
 </body>
