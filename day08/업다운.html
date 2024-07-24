@@ -10,21 +10,107 @@
         // continue; : 반복문 안에서 컨티뉴를 만나면 아래 있는거 싹 무시하고 다음 회차 실행.
         // break; : 반복문 안에서 break 를 만나면 그 조건이 만족했을 때 끝나버린다.
 
-        const 정답 = parseInt( Math.random() * 100 ) + 1 ;
-        alert('정답은 ' + 정답 + ' 입니다.');
+        // 1. first updown game.      
+        // const 정답 = parseInt( Math.random() * 100 ) + 1 ;
+        // alert('정답은 ' + 정답 + ' 입니다.');
         
-        for (let i = 0 ; i < 5 ; i++) {
-            const 답변 = parseInt(prompt('내가 생각한 숫자는?'));
+        // for (let i = 0 ; i < 5 ; i++) {
+        //     const 답변 = parseInt(prompt('내가 생각한 숫자는?'));
+
+        //     if (답변 === 정답) {
+        //         alert('정답입니다.');
+        //         break;
+        //     } else if (답변 < 정답) {
+        //         alert('Up.');
+        //     } else {
+        //         alert('Down.'); 
+        //     }
+        // }
+
+        alert('up & down Game start !');
+
+        let 범위;
+        let 기회;
+
+        let level;
+
+        while(true) {
+            level = parseInt(prompt('난이도를 설정해주세요.', '1 : 이지 2 : 노말 3 : 하드 4 : 익스트림'));
+            if (typeof level === 'number' && 1 <= level && level <= 4) {
+            break;    
+            }
+            alert('잘못된 값을 입력하셨습니다.');
+        }
+            if (level === 1) {
+                범위 = 60;
+                기회 = 6;
+            } else if (level === 2) {
+                범위 = 100;
+                기회 = 5;
+            } else if (level === 3) {
+                범위 = 120;
+                기회 = 4;
+            } else {
+                범위 = 1000;
+                기회 = 2;
+            }
+
+        
+
+        // 위 if문을 switch문으로 표현하면 다음과 같다.
+
+        // switch(level){
+        //     case 1 : 
+        //         범위 = 60;
+        //         기회 = 6;
+        //         break;
+        //     case 2 : 
+        //         범위 = 100;
+        //         기회 = 5;
+        //         break;
+        //     case 3 :
+        //         범위 = 120;
+        //         기회 = 4;
+        //         break;
+        //     case 4 :
+        //         범위 = 1000;
+        //         기회 = 1;
+        // }   
+
+
+        const 정답 = parseInt(Math.random() * 범위) + 1 ;
+
+        for (let i = 0 ; i < 기회 ; i++) {
+            let 답변
+            
+            alert(`남은 기회는 ${기회-i}번 입니다.`);
+
+            while (true) {
+                답변 =  parseInt(prompt('정답을 입력해주세요.', `1부터 ${범위} 사이의 값을 입력해주세요.`));
+
+                if (typeof 답변 === 'number' && 1 <= 답변 && 답변 <= 범위) {
+                    break;
+                }
+                alert('잘못된 값을 입력하였습니다. 범위 안의 숫자만 써주세요.');         
+            }
 
             if (답변 === 정답) {
-                alert('정답입니다.');
+                alert('정답입니다!');
                 break;
-            } else if (답변 < 정답) {
-                alert('Up.');
+            } else if (i === 기회-1) {
+                alert('기회가 모두 소진되었습니다.');
+                alert(`정답은 ${정답} 이였습니다.`);
+            } else if (답변 > 정답) {
+                alert('down');                
             } else {
-                alert('Down.'); 
+                alert('up');
             }
         }
+
+
+
+
+
 
     </script>
 </body>

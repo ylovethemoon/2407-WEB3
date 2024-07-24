@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i = 1 ; i <= 10 ; i++) {
+            if( i % 3 !== 0) {
+                console.log(i);
+            }
+        }
+
+        // continue 는 해당 회차 스킵 후 다음 회차로 진행.
+
+        for (let i = 1 ; i <= 10 ; i++) {
+            if ( i % 3 === 0) {
+                continue;
+            }
+            console.log(i);
+        }
+
+        // break 는 반복문을 종료.
+
+        for (let i = 1 ; i <= 10 ; i++) {
+            if( i % 3 === 0) {
+                break;
+            }
+            console.log(i);
+        } 
+        // 1, 2,  '3' 에서 조건이 맞았기 때문에
+        // 1, 2 까지만 콘솔 로그에 출력 되고 종료.
+
+    </script>
+</body>
+</html>
