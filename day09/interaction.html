@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interaction</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transition: 0.5s;
+        }
+
+        .box.active {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="switch">스위치</button>
+
+    <script>
+
+        // getElementsByClassName 이용.
+
+        // const box = document.getElementsByClassName('box')
+        // const button = document.getElementsByClassName('switch')
+        
+        // button[0].addEventListener('click' , ()=>{
+        //     box[0].classList.add('active'); 
+        // })
+
+        // 위 add 가 아니라 toggle 을 이용하면 껐다 켰다 가능.
+
+
+
+
+
+        // querySelector 이용.
+
+        // const box2 = document.querySelector('.box')
+        // const button2 = document.querySelector('.switch')
+        
+        // button2.addEventListener('click' , ()=>{
+        //     box2.classList.add('active'); 
+        // })
+
+
+
+
+
+
+
+
+        // box[0].classList.contains('active') box[0]이 active 라는 클래스를 가졌는지
+        // true false
+        
+       
+        // if문과 위에 contains 를 이용해 
+        // 스위치를 누를 때마다 켜졌다 꺼졌다 반복되는 인터렉션을 만들어 봅시다!
+
+
+        const box = document.getElementsByClassName('box')
+        const button = document.getElementsByClassName('switch')        
+        
+        
+
+        
+
+    </script>
+</body>
+</html>
