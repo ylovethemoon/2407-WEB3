@@ -19,11 +19,11 @@
 </head>
 <body>
     <div class="box"></div>
-    <button class="switch">스위치</button>
+    <button class="switch">switch</button>
 
     <script>
 
-        // getElementsByClassName 이용.
+        // * getElementsByClassName 이용.
 
         // const box = document.getElementsByClassName('box')
         // const button = document.getElementsByClassName('switch')
@@ -38,7 +38,7 @@
 
 
 
-        // querySelector 이용.
+        // * querySelector 이용.
 
         // const box2 = document.querySelector('.box')
         // const button2 = document.querySelector('.switch')
@@ -54,20 +54,42 @@
 
 
 
-        // box[0].classList.contains('active') box[0]이 active 라는 클래스를 가졌는지
-        // true false
-        
+        // box[0].classList.contains('active') box[0]이 active 라는 클래스를 가졌는지?
+        // 가졌으면 true , 아니면 false
+    
        
         // if문과 위에 contains 를 이용해 
         // 스위치를 누를 때마다 켜졌다 꺼졌다 반복되는 인터렉션을 만들어 봅시다!
+        // +추가 : classList.remove('클래스이름') 을 이용해 클래스를 제거할 수 있습니다.
 
 
         const box = document.getElementsByClassName('box')
-        const button = document.getElementsByClassName('switch')        
-        
-        
+        const button = document.getElementsByClassName('switch')
+
+        button[0].addEventListener('click' , ()=>{
+            const activecontain = box[0].classList.contains('active')
+
+            if(activecontain) {
+                box[0].classList.remove('active')
+            } else {                
+                box[0].classList.add('active')
+            }
+            
+        })
+
+
+
+
+        // // 스위치를 눌렀을때 
+        // box[0].classList.add('active');
 
         
+        // // 스위치를 다시 눌렀을때
+        // box[0].classList.remove('active');
+
+
+
+
 
     </script>
 </body>
