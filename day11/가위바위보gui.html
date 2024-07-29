@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+</head>
+<body>
+    <!-- 
+        0: 가위
+        1: 바위
+        2: 보
+
+        와 같은 형태로 가위바위보를 표현 할 수 있다.
+
+        컴퓨터와 가위바위보를 해 승 / 무 / 패를 출력해주는 프로그램을 작성해보자
+        입출력은 alert과 prompt를 이용한다.
+
+        컴퓨터 = 랜덤 0 ~ 2;
+
+        내가 이기는 경우
+         -> (내가 가위면서 상대가 보)
+            이거나
+            (내가 바위 이면서 상대가 가위)
+            이거나
+            (내가 보면서 상대가 바위)
+
+        내가 지는경우
+         -> (내가 가위이면서 상대가 바위)
+            이거나
+            (내가 바위 이면서 상대가 보)
+            이거나
+            (내가 보면서 상대가 가위)
+
+        무승부인경우
+         -> 나와 상대가 같을때
+        
+     -->
+
+    <script>
+
+         alert('가위 바위 보 game start!');
+
+        const 가위 = parseInt(Math.random() * 1);
+        const 바위 = parseInt(Math.random() * 2);
+        const 보 = parseInt(Math.random() * 3);
+
+        const me = parseInt(prompt('1.가위 2.바위 3.보')) ;
+
+        if (me === 1 && 보 === 3 || me === 2 && 가위 === 0 || me === 3 && 바위 === 2) {
+            alert('You win!');
+        } else if (me === 1 && 바위 === 2 || me === 2 && 보 === 3 || me === 3 && 가위 === 0) {
+            alert('You lose!');
+        } else if (me === 가위 || me === 바위 || me === 보) {
+            alert('무승부!');
+        } else {
+            alert('잘못된 값을 입력했습니다.');
+        }
+
+
+        
+
+    </script>
+
+
+
+</body>
+</html>
