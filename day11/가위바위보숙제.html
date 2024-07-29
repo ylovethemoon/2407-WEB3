@@ -34,27 +34,60 @@
 
         무승부인경우
          -> 나와 상대가 같을때
-        
+
+        0: 가위
+        1: 바위
+        2: 보
      -->
 
     <script>
 
-         alert('가위 바위 보 game start!');
+        // for (let i = 0 ; i < 3 ; i++) {
+        //     const 가위바위보 = parseInt(Math.random() + i);
 
-        const 가위 = parseInt(Math.random() * 1);
-        const 바위 = parseInt(Math.random() * 2);
-        const 보 = parseInt(Math.random() * 3);
+        //     console.log(가위바위보);
+        // }
+       
+        //     const me = parseInt(prompt('1.가위 2.바위 3.보')) ;
+
+        //     if (me === 1 && 가위바위보 === 2  || me === 2 && 가위바위보 === 0 || me === 3 && 가위바위보 === 1) {
+        //         alert('You win!');
+        //         alert('congratulation 🫶🏻');
+        //     } else if (me === 1 && 가위바위보 === 1 || me === 2 && 가위바위보 === 2 || me === 3 && 가위바위보 === 0) {
+        //         alert('You lose!');
+        //         alert('다음 기회에🥲')
+        //     } else if (me === 가위바위보) {
+        //         alert('무승부!');
+        //     } else {
+        //         alert('잘못된 값을 입력했습니다.');
+        //     }
+        // }
+
+        
+        
+        
+        // const 가위 = parseInt(Math.random());
+        // const 바위 = parseInt(Math.random() + 1);
+        // const 보 = parseInt(Math.random() + 2);
+
+        alert('가위 바위 보 game start!');
 
 
+
+        let 랜덤 = parseInt(Math.random() * 2);
+    
         const me = parseInt(prompt('1.가위 2.바위 3.보')) ;
 
-        if (me === 1 && 보 === 3 || me === 2 && 가위 === 0 || me === 3 && 바위 === 2) {
+        if (me === 1 && 랜덤 === 2 || me === 2 && 랜덤 === 0 || me === 3 && 랜덤 === 1) {
             alert('You win!');
-        } else if (me === 1 && 바위 === 2 || me === 2 && 보 === 3 || me === 3 && 가위 === 0) {
+            alert('congratulation 🫶🏻');
+        } else if (me === 1 && 랜덤 === 1 || me === 2 && 랜덤 === 2 || me === 3 && 랜덤 === 0) {
             alert('You lose!');
-        } else if (me === 가위 || me === 바위 || me === 보) {
+            alert('다음 기회에🥲')
+        } else if (me === 0 || me === 1 || me === 2 ) {
             alert('무승부!');
         } else {
+
             alert('잘못된 값을 입력했습니다.');
         }
 
