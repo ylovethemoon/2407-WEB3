@@ -70,28 +70,49 @@
         // const 바위 = parseInt(Math.random() + 1);
         // const 보 = parseInt(Math.random() + 2);
 
-        alert('가위 바위 보 game start!');
+
+        // 내가 한 ... 결과물 
+
+        // alert('가위 바위 보 game start!');
 
 
 
-        let 랜덤 = parseInt(Math.random()* 3);
+        // let 랜덤 = parseInt(Math.random()* 3) + 1;
+        
     
-        const me = parseInt(prompt('1.가위 2.바위 3.보')) ;
+        // const me = parseInt(prompt('1.가위 2.바위 3.보')) ;
 
-        if (me === 1 && 랜덤 === 2 || me === 2 && 랜덤 === 0 || me === 3 && 랜덤 === 1) {
-            alert('You win!');
-            alert('congratulation 🫶🏻');
-        } else if (me === 1 && 랜덤 === 1 || me === 2 && 랜덤 === 2 || me === 3 && 랜덤 === 0) {
-            alert('You lose!');
-            alert('다음 기회에🥲')
-        } else if (me === 0 || me === 1 || me === 2 ) {
+        // if (me === 1 && 랜덤 === 3 || me === 2 && 랜덤 === 1 || me === 3 && 랜덤 === 2) {
+        //     alert('You win!');
+        //     alert('congratulation ❤');
+        // } else if (me === 1 && 랜덤 === 2 || me === 2 && 랜덤 === 3 || me === 3 && 랜덤 === 1) {
+        //     alert('You lose!');
+        //     alert('다음 기회에😢')
+        // } else if (me === 1 || me === 2 || me === 3 ) {
+        //     alert('무승부!');
+        // } else {
+
+        //     alert('잘못된 값을 입력했습니다.');
+        // }
+
+        // console.log(`컴퓨터 : ${랜덤}`);
+        // console.log(`나 : ${me}`);
+
+
+
+
+        const computer = parseInt(Math.random() *3 );
+        const user = parseInt(prompt('가위바위보게임 start!' , '0:가위 1:바위 2:보'));
+
+        if (computer === user) {
             alert('무승부!');
+        } else if (user === 0 && computer === 2 || user === 1 && computer === 0 || user === 2 && computer === 1) {
+            alert('you win!');
         } else {
-
-            alert('잘못된 값을 입력했습니다.');
+            alert('you lose ... ');
         }
 
-
+        console.log(user,computer)
         
 
     </script>
