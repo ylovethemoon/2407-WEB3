@@ -13,7 +13,7 @@
         }
         .container {
             width: 600px;
-            height: 500px;
+            height: 550px;
             border: 1px solid #222;
             text-align: center;
             display: flex;
@@ -43,6 +43,10 @@
 <body>
     <h1>가위바위보</h1>
     <div class="container">
+        <h3>
+            <span>Stage : </span>
+            <span class="now-level"></span>
+        </h3>
         <h2 class="winning-streak">0연승</h2>
         <div class="com">
             <h3>컴퓨터</h3>
@@ -67,6 +71,9 @@
         -->
 
     <script>
+    // 가위 버튼을 눌렀을때 어떻게 작동 해야 할지 한번 써봅시다!
+
+    // 내 코드 : ...
     // const userBoard = document.getElementsByClassName('board-container');
 
     // console.log(userBoard[2])
@@ -80,11 +87,7 @@
 
     // const computerBoard = document.querySelector('.com >.board');
 
-    
-// 가위 버튼을 눌렀을때 어떻게 작동 해야 할지 한번 써봅시다! 
 
-
-    // 내 코드 : ...
     // const 가위 = document.getElementsByClassName('board');
 
     // console.log(가위[1]);
@@ -97,14 +100,21 @@
     const winningStreak = document.querySelector('.winning-streak');
     const comBoard = document.querySelector('.com > .board'); 
     const userBoardContainer = document.querySelector('.board-container'); 
+    const nowLevel = document.querySelector('.now-level'); 
+
 
     console.log(winningStreak);
     console.log(comBoard);
     console.log(userBoardContainer);
+    console.log(nowLevel);
 
     
     const table = ['가위', '바위', '보'];
-    let 연승 = 0;
+    let 연승횟수 = 0;
+    let level = 1;
+    let levelDesign = [3 , 5 , 7, 9]
+
+    nowLevel.innerText = level;
     
     for (let i = 0 ; i < userBoardContainer.childElementCount ; i++) {
 
@@ -114,25 +124,37 @@
         const user = i;
         
         comBoard.innerText = table[computer];
+
+        for(let i = 0 ; i < 3 ; i++) {
+            userBoardContainer.children[i].style.backgroundColor = '#aaa';                        
+        }
+
+            userBoardContainer.children[i].style.backgroundColor = 'pink';    
         
         if (computer === user) {
             winningStreak.innerText = '무승부!'
             winningStreak.style.color = 'black';
         } else if (user === 0 && computer === 2 || user === 1 && computer === 0 || user === 2 && computer === 1) {
-            연승++;
+            연승횟수++;
             winningStreak.innerText = `승리! `
             winningStreak.style.color = 'blue';
         } else {
-            연승 = 0;
+            연승횟수 = 0;
             winningStreak.innerText = '패배!'
             winningStreak.style.color = 'red';
         }
 
-        if (연승 === 3) {
+        if (연승횟수 === levelDesign[level-1]) {
+            level++;
+            연승횟수 = 0;
             winningStreak.innerText = '게임 클리어!'
             winningStreak.style.color = 'blue';
+            nowLevel.innerText = level;
+
+    
         } else {
-            winningStreak.innerText = winningStreak.innerText + ` ${연승}연승`
+            winningStreak.innerText = winningStreak.innerText + ` ${연승횟수}연승`
+            // winningStreak.innerText += ` ${연승횟수}연승`
         }
 
 
