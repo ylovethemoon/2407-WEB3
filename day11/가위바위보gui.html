@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container {
+            width: 600px;
+            height: 500px;
+            border: 1px solid #222;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .board {
+            width: 120px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .board:active {
+            background-color: #555;
+        }
+
+        .board-container {
+            display: flex;
+            gap: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>가위바위보</h1>
+    <div class="container">
+        <h2 class="winning-streak">0연승</h2>
+        <div class="com">
+            <h3>컴퓨터</h3>
+            <div class="board"></div>
+        </div>
+        <div class="user">
+            <h3>유저</h3>
+            <div class="board-container">
+                <div class="board">가위</div>
+                <div class="board">바위</div>
+                <div class="board">보</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 가위바위보 + GUI -->
+
+    <!-- 승리조건 :  가위바위보를 3번 연속 이겼을때 -->
+    <!-- 세부규칙 :  무승부는 연승에 영향을 주지 않는다.
+                    패배시 연승횟수는 0부터 다시 시작
+                    횟수 제한은 없으며 승리할때까지 계속해서 반복한다.
+        -->
+
+    <script>
+    // const userBoard = document.getElementsByClassName('board-container');
+
+    // console.log(userBoard[2])
+
+    // for (i = 0 ; i < userBoard.length ; i++) {
+    //         const myBoard = userBoard[i].querySelector('.board');
+
+    //         myBoard.addEventListener('click', )
+    // }
+
+
+    // const computerBoard = document.querySelector('.com >.board');
+
+    
+// 가위 버튼을 눌렀을때 어떻게 작동 해야 할지 한번 써봅시다! 
+
+
+    // 내 코드 : ...
+    // const 가위 = document.getElementsByClassName('board');
+
+    // console.log(가위[1]);
+
+    // 가위[1].addEventListener('click', () => {
+    //     가위[1].classList.add()
+    // })
+
+
+    const winningStreak = document.querySelector('.winning-streak');
+    const comBoard = document.querySelector('.com > .board'); 
+    const userBoardContainer = document.querySelector('.board-container'); 
+
+    console.log(winningStreak);
+    console.log(comBoard);
+    console.log(userBoardContainer);
+
+    
+    const table = ['가위', '바위', '보'];
+    let 연승 = 0;
+    
+    for (let i = 0 ; i < userBoardContainer.childElementCount ; i++) {
+
+    userBoardContainer.children[i].addEventListener ('click' , () => {
+        
+        const computer = parseInt(Math.random() *3);
+        const user = i;
+        
+        comBoard.innerText = table[computer];
+        
+        if (computer === user) {
+            winningStreak.innerText = '무승부!'
+            winningStreak.style.color = 'black';
+        } else if (user === 0 && computer === 2 || user === 1 && computer === 0 || user === 2 && computer === 1) {
+            연승++;
+            winningStreak.innerText = `승리! `
+            winningStreak.style.color = 'blue';
+        } else {
+            연승 = 0;
+            winningStreak.innerText = '패배!'
+            winningStreak.style.color = 'red';
+        }
+
+        if (연승 === 3) {
+            winningStreak.innerText = '게임 클리어!'
+            winningStreak.style.color = 'blue';
+        } else {
+            winningStreak.innerText = winningStreak.innerText + ` ${연승}연승`
+        }
+
+
+        })
+
+    }
+
+
+
+        
+    </script>
+</body>
+</html>
