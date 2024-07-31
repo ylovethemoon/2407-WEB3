@@ -13,9 +13,14 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: url("/my-img/pinksky.jpg") whitesmoke no-repeat center;
+    background: url("/my-img/background.jpg") whitesmoke no-repeat center;
 }
 
+.slider-wrapper {
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 70px 55px;
+}
 
 .card-list .card-item {
     color: #fff;
@@ -27,7 +32,7 @@ body {
     justify-content: center;
     border-radius: 8px;
     backdrop-filter: blur(30px);
-    background: rgba(255, 255, 255, 0.103);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .card-list .card-item .user-image {
@@ -36,11 +41,12 @@ body {
     border-radius: 50%;
     margin-bottom: 40px;
     border: 1px solid #fff;
+    padding: 4px;
 }
 
 .card-list .card-item .user-motto {
     font-size: 1.15rem;
-    color: #e3e3e3;
+    color: #fff;
     font-weight: 500;
     margin: 14px 0 40px;
 
@@ -48,7 +54,7 @@ body {
 
 
 .card-list .card-item .message-button {
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding: 10px 35px;
     color : #222;
     border-radius: 6px;
@@ -56,4 +62,11 @@ body {
     cursor : pointer;
     background: #fff;
     border: 1px solid transparent;
+    transition:  0.2s ease;
+}
+
+.card-list .card-item .message-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
 }
