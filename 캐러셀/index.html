@@ -11,7 +11,7 @@
         }
 
         .slider {
-            width: 300px;
+            width: 500px;
             height: 200px;
             overflow: hidden;         
         }
@@ -56,17 +56,31 @@
             <li class="content">8</li>
         </ul> 
     </div>
-    <div class="controls">
-        <button class="prev">이전</button>
-        <button class="next">다음</button>
+    <div class="controls"46>
+        <button class="prev">prev</button>
+        <button class="next">next</button>
     </div>
 
     <script>
-        const nextButton = document.querySelector('.next');
-        const prevButton = document.querySelector('.prev');
+        const viewCount = 4;
+        const gap = 8;
+
+        const slider = document.querySelector('.slider');
         const wrap = document.querySelector('.content-wrap');
+        const contentCount = wrap.childElementCount;
+        const prevButton = document.querySelector('.prev');        
+        const nextButton = document.querySelector('.next');
+
+        const slideWidth = slider.clientWidth;
+        const contentWidth = (slideWidth - gap * (viewCount-1)) / viewCount;
         
-        console.log(wrap);
+        console.log(contentWidth);
+
+        wrap.style.gap = `${gap}px`
+
+        for(let i = 0 ; i < contentCount ; i++) {
+            wrap.children[i].style.width = `${contentWidth}px`
+        }
 
         let index = 0;
 
@@ -76,29 +90,22 @@
             if (index < 0) {
                 index = 0;
             }
-
             applyIndexToSlider ()
-
-                    
+                 
         })
 
-        
         nextButton.addEventListener('click' , ()=> {     
             index++;
 
-            if (index > wrap.childElementCount-1) {
-                index = wrap.childElementCount-1;
+            if (index > contentCount-1) {
+                index = contentCount-1;
             }
-
-            applyIndexToSlider ()
-                            
+            applyIndexToSlider ()                            
         })
 
         function applyIndexToSlider () {
-            wrap.style.transform = `translateX(${index * -300}px)` 
+            wrap.style.transform = `translateX(${index * -contentWidth}px)` 
         }
-
-
     </script>
 </body>
 </html>
