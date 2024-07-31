@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;         
+        }
+
+        .content-wrap {
+            display: flex;
+            transition: 0.5s;
+        }
+
+        .content {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            
+            flex-shrink: 0;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+
+            transform: translateX();
+
+            /* transform: translateX(-300px);
+            transform: translateX(-600px); */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul class="content-wrap">
+            <li class="content">1</li>
+            <li class="content">2</li>
+            <li class="content">3</li>
+            <li class="content">4</li>
+            <li class="content">5</li>
+            <li class="content">6</li>
+            <li class="content">7</li>
+            <li class="content">8</li>
+        </ul> 
+    </div>
+    <div class="controls">
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+    <script>
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const wrap = document.querySelector('.content-wrap');
+        
+        console.log(wrap);
+
+        let index = 0;
+
+        prevButton.addEventListener('click' , ()=> {
+            index--;
+
+            if (index < 0) {
+                index = 0;
+            }
+
+            applyIndexToSlider ()
+
+                    
+        })
+
+        
+        nextButton.addEventListener('click' , ()=> {     
+            index++;
+
+            if (index > wrap.childElementCount-1) {
+                index = wrap.childElementCount-1;
+            }
+
+            applyIndexToSlider ()
+                            
+        })
+
+        function applyIndexToSlider () {
+            wrap.style.transform = `translateX(${index * -300}px)` 
+        }
+
+
+    </script>
+</body>
+</html>
