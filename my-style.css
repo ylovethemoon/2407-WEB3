@@ -24,7 +24,7 @@ body {
 
 .card-list .card-item {
     color: #fff;
-    width: 400px;
+    user-select: none;
     padding: 35px;
     display: flex;
     flex-direction: column;
@@ -36,17 +36,18 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .card-list .card-item .user-image {
-    width: 320px;
-    height: 400px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 40px;
     border: 1px solid #fff;
     padding: 4px;
+    object-fit: cover;
 }
 
 .card-list .card-item .user-motto {
     font-size: 1.15rem;
-    color: #fff;
+    color: #554141;
     font-weight: 500;
     margin: 14px 0 40px;
 
@@ -70,3 +71,29 @@ body {
     border: 1px solid #fff;
     color: #fff;
 }
+
+.slider-wrapper .slider-pagination-bullet {
+    background-color: #fff;
+    height: 15px;
+    width: 15px;
+}
+
+.slider-wrapper .swiper-slide-button {
+    color:#fff;
+    margin-top: -50px;
+}
+
+.slider-wrapper .swiper-slide-button:hover {
+    color: #424353;
+}
+
+@media (max-width: 768px) {
+    .slider-wrapper {
+        margin: 0 10px 40px;
+    }
+
+    .slider-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
