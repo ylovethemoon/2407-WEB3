@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복사</title>
+</head>
+<body>
+   <div class="container">
+    <div class="content">
+        안녕하세요
+    </div>
+   </div> 
+
+   <div class="other-side">
+    <div>기</div>
+    <div>존</div>
+    <div>요</div>
+    <div>소</div>
+</div>
+
+   <script>
+        const container = document.querySelector('.container');
+        const otherSide = document.querySelector('.other-side');
+
+        const cloneContainer = container.cloneNode(true);
+        // cloneNode(false) : 껍데기만 복사 
+        // cloneNode(true) : 태그 안 태그 + 내용까지 복사 
+
+        cloneContainer.classList.add('clone');
+        otherSide.appendChild(cloneContainer);
+
+
+        for (let i = 0 ; i < 4 ; i++) {
+            const cloneContainer = container.cloneNode(true);
+            cloneContainer.classList.add('clone');
+            otherSide.appendChild(cloneContainer);
+            
+        }
+
+
+        const cloneContanierToFront = container.cloneNode(true);
+
+        otherSide.insertBefore(cloneContanierToFront, otherSide.firstElementChild);
+        //  = otherSide.insertBefore(cloneContaierToFront, otherSide.children[0]);        
+
+
+
+        
+
+        
+
+        
+   </script>
+</body>
+</html> 

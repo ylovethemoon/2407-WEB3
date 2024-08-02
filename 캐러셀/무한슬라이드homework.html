@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>slide</title>
+    <title>무한슬라이드</title>
     <style>
         * {
             margin: 0;
@@ -38,14 +38,14 @@
 <body>
     <div class="slider">
         <ul class="content-wrapper">
-            <li class="content">1</li>
+            <li class="content">1(처음)</li>
             <li class="content">2</li>
             <li class="content">3</li>
             <li class="content">4</li>
             <li class="content">5</li>
             <li class="content">6</li>
             <li class="content">7</li>
-            <li class="content">8</li>
+            <li class="content">8(끝)</li>
         </ul>
     </div>
     <div class="controls">
@@ -54,41 +54,70 @@
     </div>
 
     <script>
-        const viewCount = 4;
+        const viewCount = 1;
         const gap = 4;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
-        const slideCount = contentWrapper.childElementCount;
+        // const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
 
         const contentSlider = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
 
+        // 복사본 끼워넣기.
+        const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
+        const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
+
+        contentWrapper.appendChild(cloneFirst);
+        contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+
+
+
         let index = 0 ;
 
         contentWrapper.style.gap = `${gap}px`
 
-        for(let i = 0 ; i < slideCount ; i ++) {
+        for(let i = 0 ; i < contentWrapper.childElementCount ; i ++) {
             contentWrapper.children[i].style.width = `${contentSlider}px`
         }
 
-        prevButton.addEventListener('click',()=>{
-            index--;
-            if(index < 0 ) {
-                index = contentWrapper.childElementCount-viewCount;
-            }
-            applyIndexToSlider()
-        })
+        // prevButton.addEventListener('click',()=>{
+        //     index--;
+        //     if(index < 0 ) {
+        //         index = contentWrapper.childElementCount-viewCount;
+        //     }
+        //     applyIndexToSlider(true)
+        // })
         nextButton.addEventListener('click',()=>{
             index++
-            if(index > contentWrapper.childElementCount-viewCount) {
-                index = 0 ;
-                
+            
+            // 일단 재생하고,
+            applyIndexToSlider(true)
+            
+            if(index = contentWrapper.lastElementChild) {
+                setTimeout(() => {
+                    applyIndexToSlider(false);                  
+                },  );
+                index = 1 ;
             }
-            applyIndexToSlider()
-        })
+        }
 
-        function applyIndexToSlider(){
+        
+
+        //     if(index > contentWrapper.childElementCount-viewCount) {
+        //         index = 0 ;
+                
+        //     }
+        //     applyIndexToSlider(true)
+        // }
+        )
+
+        function applyIndexToSlider(animation){
+            if(animation) {
+                contentWrapper.style.transition = '0.5s';
+            } else {
+                contentWrapper.style.transition = 'none';
+            }
             contentWrapper.style.transform = `translateX(${index * -(contentSlider + gap)}px)`
         }
     </script>
