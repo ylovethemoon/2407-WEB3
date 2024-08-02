@@ -94,14 +94,11 @@
         })
         nextButton.addEventListener('click',()=>{
             index++;
-            
             // 일단 재생하고,
             applyIndexToSlider(true)
             
             // 만약 마지막 슬라이드(1(처음) 복사본)에 도달 했다면
-
-            if(index > contentWrapper.childElementCount - 2) {
-                
+            if(index > contentWrapper.childElementCount - 2) {                
             // transition 지속시간만큼 시간이 흐른 뒤에
             // transition을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다.            
                 setTimeout(() => {   
@@ -111,10 +108,7 @@
             }
           
         }
-
-        
-
-        
+   
 
         //     if(index > contentWrapper.childElementCount-viewCount) {
         //         index = 0 ;
