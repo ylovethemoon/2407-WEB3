@@ -23,14 +23,14 @@
 
         .content {
             height: 200px;
-            background-color: #444;
+            background-color: lightgrey;
             flex-shrink: 0;
 
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: bold;
-            color: white;
+            color: #222;
             font-size: 24px;
         }
     </style>
@@ -81,26 +81,38 @@
             contentWrapper.children[i].style.width = `${contentSlider}px`
         }
 
-        // prevButton.addEventListener('click',()=>{
-        //     index--;
-        //     if(index < 0 ) {
-        //         index = contentWrapper.childElementCount-viewCount;
-        //     }
-        //     applyIndexToSlider(true)
-        // })
+        prevButton.addEventListener('click',()=>{
+            index--;
+            applyIndexToSlider(true)
+
+            if(index < 1 ) {
+                setTimeout(() => {   
+                    applyIndexToSlider(false)                           
+                }, 500 );          
+                index = 8; 
+            }
+        })
         nextButton.addEventListener('click',()=>{
-            index++
+            index++;
             
             // 일단 재생하고,
             applyIndexToSlider(true)
             
-            if(index = contentWrapper.lastElementChild) {
-                setTimeout(() => {
-                    applyIndexToSlider(false);                  
-                },  );
-                index = 1 ;
+            // 만약 마지막 슬라이드(1(처음) 복사본)에 도달 했다면
+
+            if(index > contentWrapper.childElementCount - 2) {
+                
+            // transition 지속시간만큼 시간이 흐른 뒤에
+            // transition을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다.            
+                setTimeout(() => {   
+                    applyIndexToSlider(false)                           
+                }, 500 );          
+                index = 1;  
             }
+          
         }
+
+        
 
         
 
