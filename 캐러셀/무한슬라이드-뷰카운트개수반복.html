@@ -54,7 +54,7 @@
     </div>
 
     <script>
-        const viewCount = 2;
+        const viewCount = 3;
         const gap = 4;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
@@ -102,22 +102,40 @@
         }
 
         // 8 7 6 5 로 나옴 ....
-        for (let i = 0 ; i < viewCount; i++) {
-            const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)].cloneNode(true)         
-            contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-
-        }
-
-
-        // for (let i = 0 ; i > viewCount; i++) {
-        //     const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)].cloneNode(true)         
+        // for (let i = 0 ; i < viewCount; i++) {
+        //     const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)].cloneNode(true)
         //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
         // }
+        
 
+        for (let i = viewCount; i > 0; i--) {
+            const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)-1].cloneNode(true)
+            contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+
+        }
+        
 
          // 🤍🤍🤍🤍🤍🤍
-         
+
+
+        // for (let i = 0 ; i < viewCount; i++) { 
+
+        //     const cloneFirst = contentWrapper.children[i].cloneNode(true);
+        //     contentWrapper.appendChild(cloneFirst);
+            
+        // }
+
+        // for (let i = 0 ; i < contentWrapper.childElementCount - viewCount; i++) {
+        //     i--; 
+        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
+
+        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+            
+        // }
+
+
+          
          
 
         // for (let i = 0; i < viewCount ; i++) {
