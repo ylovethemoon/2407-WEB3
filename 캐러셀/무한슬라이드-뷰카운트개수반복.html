@@ -54,17 +54,30 @@
     </div>
 
     <script>
-        const viewCount = 1;
+        const viewCount = 2;
         const gap = 4;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         // const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
+        const playTime = 500;
 
         const contentSlider = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
 
         // 복사본 끼워넣기.
+
+        // 현재 뷰카운트가 달라지면 오작동하는 이슈가 있습니다.
+        // 이는 뷰카운트 개수만큼 클론을 만들어야하는데
+        // 기존의 작성은 viewCount가 1인 경우에만 올바르게 작동되는 상황입니다.
+        // 반복문을 이용해 viewCount 개수만큼 clone을 만들어주면 해결 될 것 같은데,
+        // 반복문을 한번만 쓰게 되면 1 2 3 4 5 -> [1] [4] 1 2 3 4 [1] [4] 이런식으로 될 겁니다.
+    
+        // 복사하는 부분과 끼워넣는 부분을 별도로 분리해서 (for문 2개 이상 쓰라는 이야기!)
+        // 복사본을 적절한 위치에 잘 넣어 보도록 합시다.
+
+
+
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
 
@@ -73,7 +86,10 @@
 
 
 
-        let index = 0 ;
+        let index = viewCount ;
+        let playAble = true;
+
+        applyIndexToSlider(false);
 
         contentWrapper.style.gap = `${gap}px`
 
@@ -82,34 +98,58 @@
         }
 
         prevButton.addEventListener('click',()=>{
-            index--;
-            applyIndexToSlider(true)
+            if(playAble) {
+                playAble = false;
 
-            if(index < 1 ) {
-                setTimeout(() => {   
-                    applyIndexToSlider(false)                           
-                }, 500 );          
-                index = 8; 
+                index--;
+                applyIndexToSlider(true)
+            
+
+                setTimeout(() => {
+                    playAble = true;
+
+                    if(index < viewCount ){
+                        index = contentWrapper.childElementCount - viewCount - 1;
+                        applyIndexToSlider(false) 
+                    }                          
+                }, playTime);          
             }
         })
+
+
         nextButton.addEventListener('click',()=>{
-            index++;
-            // 일단 재생하고,
-            applyIndexToSlider(true)
-            
-            // 만약 마지막 슬라이드(1(처음) 복사본)에 도달 했다면
-            if(index > contentWrapper.childElementCount - 2) {                
-            // transition 지속시간만큼 시간이 흐른 뒤에
-            // transition을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다.            
+            if (playAble) {
+                playAble = false;
+
+                index++;
+                // 일단 재생하고,
+                applyIndexToSlider(true)
+
                 setTimeout(() => {
-                    index = 1;  
-                    applyIndexToSlider(false)                           
-                }, 500 );          
-                
+                    playAble = true;
+
+                    if(index === contentWrapper.childElementCount - viewCount) {                
+                // transition 지속시간만큼 시간이 흐른 뒤에
+                // transition을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다.            
+                        index = viewCount;  
+                        applyIndexToSlider(false)                                            
+                    }
+                }, playTime);
             }
-          
-        }
-   
+        })          
+            
+    
+        // 무한슬라이드에서 애니메이션 중복 작동 처리를 해주지 않으면
+        // 슬라이드가 인덱스 밖으로 뛰쳐 나가는 문제가 발생한다.
+        // 플레이 상태를 담는 변수 / if 문 / setTimeout을 이용해 처리 가능합니다.
+
+        // 애니메이션이 끝날 때까지 버튼 클릭이 작동하지 않게 해라.
+
+        // if (애니매이션이 끝남) {버튼클릭 작동} / (안끝남) {버튼클릭작동 no}
+
+        
+        // 클릭했을때 
+        // 애니메이션이끝나면 {}
 
         //     if(index > contentWrapper.childElementCount-viewCount) {
         //         index = 0 ;
@@ -117,11 +157,11 @@
         //     }
         //     applyIndexToSlider(true)
         // }
-        )
+        
 
         function applyIndexToSlider(animation){
             if(animation) {
-                contentWrapper.style.transition = '0.5s';
+                contentWrapper.style.transition = `${playTime}ms`;
             } else {
                 contentWrapper.style.transition = 'none';
             }
