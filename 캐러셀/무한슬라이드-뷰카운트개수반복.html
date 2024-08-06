@@ -54,7 +54,7 @@
     </div>
 
     <script>
-        const viewCount = 3;
+        const viewCount = 5;
         const gap = 4;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
@@ -93,30 +93,49 @@
 
         // }
 
-        // 🤍🤍🤍🤍🤍🤍
+        // // 🤍🤍🤍🤍🤍🤍
 
-        for (let i = 0 ; i < viewCount; i++) {
-            const cloneFirst = contentWrapper.children[i].cloneNode(true)
-            contentWrapper.appendChild(cloneFirst);
-           
-        }
-
-        // 8 7 6 5 로 나옴 ....
         // for (let i = 0 ; i < viewCount; i++) {
-        //     const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)].cloneNode(true)
+        //     const cloneFirst = contentWrapper.children[i].cloneNode(true)
+        //     contentWrapper.appendChild(cloneFirst);
+           
+        // }
+
+        // // 8 7 6 5 로 나옴 ....
+        // // for (let i = 0 ; i < viewCount; i++) {
+        // //     const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)].cloneNode(true)
+        // //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+
+        // // }
+        
+
+        // for (let i = viewCount; i > 0; i--) {
+        //     const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)-1].cloneNode(true)
         //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
         // }
         
 
-        for (let i = viewCount; i > 0; i--) {
-            const cloneLast = contentWrapper.children[i + (contentWrapper.childElementCount - viewCount*2)-1].cloneNode(true)
-            contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+        //  // 🤍🤍🤍🤍🤍🤍
 
+
+
+        // 쉬운 정답!! 
+        
+        
+        const cloneFirst = [];
+        const cloneLast = [];
+
+        for (let i = 0 ; i < viewCount ; i++) {
+            cloneFirst.push(contentWrapper.children[i].cloneNode(true));
+            cloneLast.push(contentWrapper.children[contentWrapper.childElementCount - 1 - i].cloneNode(true));
         }
         
-
-         // 🤍🤍🤍🤍🤍🤍
+        
+        for (let i = 0 ; i < viewCount ; i++) {
+            contentWrapper.appendChild(cloneFirst[i])
+            contentWrapper.insertBefore(cloneLast[i], contentWrapper.firstElementChild);
+        }
 
 
         // for (let i = 0 ; i < viewCount; i++) { 
