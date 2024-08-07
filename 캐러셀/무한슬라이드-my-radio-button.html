@@ -36,21 +36,25 @@
     </style>
 </head>
 <body>
-    <div class="slider">
-        <ul class="content-wrapper">
-            <li class="content">1(처음)</li>
-            <li class="content">2</li>
-            <li class="content">3</li>
-            <li class="content">4</li>
-            <li class="content">5</li>
-            <li class="content">6</li>
-            <li class="content">7</li>
-            <li class="content">8(끝)</li>
-        </ul>
+    <div class="slider-container">
+        <div class="slider">
+            <ul class="content-wrapper">
+                <li class="content">1(처음)</li>
+                <li class="content">2</li>
+                <li class="content">3</li>
+                <li class="content">4</li>
+                <li class="content">5</li>
+                <li class="content">6</li>
+                <li class="content">7</li>
+                <li class="content">8(끝)</li>
+            </ul>
     </div>
-    <div class="controls">
-        <button class="prev">prev</button>
-        <button class="next">next</button>
+        <div class="controls">
+            <button class="prev">prev</button>
+            <button class="next">next</button>
+            <div class="button">               
+            </div>
+        </div>
     </div>
 
     <script>
@@ -80,16 +84,6 @@
 
         // firstElemnetChild ----> children[index] 이런식으로 바껴야함.
 
-
-        // for (let i = 0 ; i < viewCount ; i++) {
-        //     const cloneFirst = contentWrapper.children[i].cloneNode(true)
-        //     contentWrapper.appendChild(cloneFirst);
-        // }
-
-        // for (let i = 0 ; i < contentWrapper.childElementCount - viewCount; i++) {
-        //     i = i + (contentWrapper.childElementCount - viewCount - 1);
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
         // }
 
@@ -137,69 +131,8 @@
             contentWrapper.insertBefore(cloneLast[i], contentWrapper.firstElementChild);
         }
 
-
-        // for (let i = 0 ; i < viewCount; i++) { 
-
-        //     const cloneFirst = contentWrapper.children[i].cloneNode(true);
-        //     contentWrapper.appendChild(cloneFirst);
-            
-        // }
-
-        // for (let i = 0 ; i < contentWrapper.childElementCount - viewCount; i++) {
-        //     i--; 
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-            
-        // }
-
-
-          
+      
          
-
-        // for (let i = 0; i < viewCount ; i++) {
-        //     i = i + (contentWrapper.childElementCount - (viewCount*2));
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-        // }
-
-
-        // for (let i = 0 ; i < contentWrapper.childElementCount - viewCount ; i++ ) {
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-        // }
-
-        // 마지막 인덱스 번호 구하는 식
-        // contentWrapper.childElementCount - viewCount - 1;
-
-        // for (let i = 8 ; i < contentWrapper.childElementCount - viewCount - 1 ; i++) {
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-        // }
-        
-        // for (let i = 0 ; i < viewCount ; i++) {
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
-        // }
-
-
-        // for (let i = 8 ; i < viewCount - 1; i++) {
-        //     const cloneLast = contentWrapper.children[i].cloneNode(true);
-        // }
-        
-        // const cloneFirst = contentWrapper.children[i].cloneNode(true)
-        // const cloneLast = contentWrapper.children[j].cloneNode(true)
-
-        // for (let i = 0 ; i < viewCount ; i++) {
-        //     for (let j = 0 ; j < i + (contentWrapper.childElementCount - (viewCount * 3)) ; j++ ) {
-
-        //         contentWrapper.appendChild(cloneFirst);
-        //         contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild)
-        //     }
-
-        // }
-
 
 
         // 반복문을 한번만 쓰게 되면 1 2 3 4 5 -> [1] [4] 1 2 3 4 [1] [4] 이런식으로 될 겁니다.
@@ -273,7 +206,7 @@
 
         // 애니메이션이 끝날 때까지 버튼 클릭이 작동하지 않게 해라.
 
-        // if (애니매이션이 끝남) {버튼클릭 작동} / (안끝남) {버튼클릭작동 no}
+        // if (애니메이션이 끝남) {버튼클릭 작동} / (안끝남) {버튼클릭작동 no}
 
         
         // 클릭했을때 
