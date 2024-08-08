@@ -8,12 +8,12 @@
     <script src="createSlider.js"></script>
     <style>
         .my-slider {
-            width: 30%;
+            width: 100%;
             height: 700px;
         }
 
         .contents {
-            background-color: cadetblue;
+            background-color: pink;
         }
 
     </style>
@@ -34,7 +34,10 @@
     <script>
         const mySlider = document.querySelector('.my-slider');
 
-        createSlider(mySlider, 3, 16, 300, true)
+
+        // createSlider(target, viewCount, gap, transitionTime, autoPlay)
+
+        createSlider(mySlider, 4, 12, 300, true)
         
     </script>
 </body>
